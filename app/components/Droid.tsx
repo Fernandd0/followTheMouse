@@ -262,12 +262,12 @@ export function Model(props: React.JSX.IntrinsicElements['group']) {
 
         const action = actions['motion']
         if (action && !action.isRunning()) {
-          action.reset().fadeIn(0.5).play()
+          action.reset().fadeIn(0.9).play()
         }
       } else {
         const action = actions['motion']
         if (action && action.isRunning()) {
-          action.fadeOut(0.5)
+          action.fadeOut(0.9)
         }
       }
     }

@@ -9,7 +9,7 @@ export default function RobotFace() {
         <>
             <div className="flex items-center justify-center h-screen bg-black overflow-hidden">
                 <div className="w-full h-full">
-                    <Canvas shadows camera={{ position: [0, 5, 10], fov: 50 }}>
+                    <Canvas shadows camera={{ position: [0, 3, 8], fov: 70 }}>
                         <ambientLight intensity={0.5} />
                         <directionalLight
                             position={[10, 10, 5]}
