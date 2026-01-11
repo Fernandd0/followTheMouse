@@ -1,0 +1,41 @@
+'use client'
+import { Canvas } from '@react-three/fiber'
+import { Environment, OrbitControls, Plane } from '@react-three/drei'
+import { Model as Droid } from './Droid'
+import { Suspense } from 'react'
+
+export default function RobotFace() {
+    return (
+        <div className="flex items-center justify-center h-screen bg-black overflow-hidden">
+            <div className="w-full h-full">
+                <Canvas shadows camera={{ position: [0, 5, 10], fov: 50 }}>
+                    <ambientLight intensity={0.5} />
+                    <directionalLight
+                        position={[10, 10, 5]}
+                        intensity={1}
+                        castShadow
+                    />
+                    <Suspense fallback={null}>
+                        <Droid />
+                        <Environment preset="studio" />
+                        <Plane
+                            args={[100, 100]}
+                            rotation={[-Math.PI / 2, 0, 0]}
+                            position={[0, 0, 0]}
+                            visible={false}
+                        />
+                        <Plane
+                            args={[100, 100]}
+                            rotation={[-Math.PI / 2, 0, 0]}
+                            position={[0, -0.01, 0]}
+                            receiveShadow
+                        >
+                            <meshStandardMaterial color="#000" />
+                        </Plane>
+                    </Suspense>
+                    <OrbitControls />
+                </Canvas>
+            </div>
+        </div>
+    );
+}
